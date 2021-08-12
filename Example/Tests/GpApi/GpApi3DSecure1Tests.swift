@@ -757,11 +757,13 @@ class GpApi3DSecure1Tests: XCTestCase {
     private func assertCheckEnrollmentChallengeV1(_ secureEcom: ThreeDSecure?) {
         XCTAssertNotNil(secureEcom)
         XCTAssertEqual(secureEcom?.enrolled, "ENROLLED")
+        XCTAssertEqual(secureEcom?.liabilityShift, "")
         XCTAssertEqual(secureEcom?.version, .one)
         XCTAssertEqual(secureEcom?.status, "CHALLENGE_REQUIRED")
         XCTAssertEqual(secureEcom?.challengeMandated, true)
         XCTAssertEqual(secureEcom?.messageVersion, "1.0.0")
         XCTAssertNotNil(secureEcom?.issuerAcsUrl)
+        XCTAssertNotNil(secureEcom?.challengeValue)
         XCTAssertNotNil(secureEcom?.payerAuthenticationRequest)
         XCTAssertNotNil(secureEcom?.challengeValue)
         XCTAssertNil(secureEcom?.eci)
@@ -770,6 +772,7 @@ class GpApi3DSecure1Tests: XCTestCase {
     private func assertCheckEnrollmentCardNotEnrolledV1(_ secureEcom: ThreeDSecure?) {
         XCTAssertNotNil(secureEcom)
         XCTAssertEqual(secureEcom?.version, .one)
+        XCTAssertEqual(secureEcom?.liabilityShift, "YES")
         XCTAssertEqual(secureEcom?.enrolled, "NOT_ENROLLED")
         XCTAssertEqual(secureEcom?.status, "NOT_ENROLLED")
         XCTAssertEqual(secureEcom?.eci, 6)

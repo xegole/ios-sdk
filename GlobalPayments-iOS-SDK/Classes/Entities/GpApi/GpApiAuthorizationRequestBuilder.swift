@@ -152,9 +152,12 @@ struct GpApiAuthorizationRequestBuilder: GpApiRequestData {
                     threeDs.set(for: "eci", value: "\(eci)")
                 }
 
+//                let authentication = JsonDoc()
+//                    .set(for: "three_ds", doc: threeDs)
+                
                 let authentication = JsonDoc()
-                    .set(for: "three_ds", doc: threeDs)
-
+                    .set(for: "id", doc: threeDs)
+                
                 paymentMethod.set(for: "authentication", doc: authentication)
             }
         }

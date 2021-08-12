@@ -37,6 +37,7 @@ public class ThreeDSecure: NSObject {
     /// The URL of the Issuing Bank's ACS.
     public var issuerAcsUrl: String?
     /// A KVP collection of merchant supplied data
+    public var liabilityShift: String?
     public var merchantData: MerchantDataCollection? = MerchantDataCollection() {
         didSet {
             merchantData?.mergeHidden(collection: self.merchantData)

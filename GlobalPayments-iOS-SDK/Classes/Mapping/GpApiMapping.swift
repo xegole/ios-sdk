@@ -294,6 +294,7 @@ public struct GpApiMapping {
         secure.acsStartVersion = doc?.get(valueFor: "three_ds")?.getValue(key: "acs_protocol_version_start")
         secure.acsEndVersion = doc?.get(valueFor: "three_ds")?.getValue(key: "acs_protocol_version_end")
         secure.enrolled = doc?.get(valueFor: "three_ds")?.getValue(key: "enrolled_status") ?? "NOT_ENROLLED"
+        secure.liabilityShift = doc?.get(valueFor: "three_ds")?.getValue(key: "liability_shift")
         if let eci: String = doc?.get(valueFor: "three_ds")?.getValue(key: "eci"), let eciValue = Int(eci) {
             secure.eci = eciValue
         }
